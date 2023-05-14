@@ -1,0 +1,147 @@
+.homeLayout {
+  display: grid;
+  grid-auto-rows: 100dvh;
+  inline-size: 100%;
+}
+
+.aboveThefold {
+  background-image: var(--hero);
+  background-size: cover;
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: 10dvw;
+  color: white;
+}
+
+.heroContent {
+  max-inline-size: 75ch;
+}
+
+.heroCallToAction {
+  border: 1px solid white;
+  padding: 1rem;
+  max-inline-size: 40ch;
+}
+
+.player {
+  position: fixed;
+  inset-block-end: 0;
+  inline-size: 100%;
+  display: grid;
+  grid-template-columns: 6.65rem 1fr;
+  transform: translate(0, 1em);
+}
+
+.playerCover {
+  grid-row: 1;
+  grid-column: 1/-1;
+
+}
+
+.playerControls {
+  inline-size: calc(100% + 6.7rem);
+  overflow: hidden;
+  grid-row: 1;
+  grid-column: 2/-1;
+}
+
+.playerControls iframe {
+  /* position: absolute; */
+  filter: invert(100%);
+  transform: translate(-6.75rem)
+}
+
+
+
+.section {
+  inline-size: 100%;
+  padding-inline: 10dvw;
+}
+
+.shows {
+  /* background-image: url("/images/wall-background.jpg"); */
+  /* background-size: cover; */
+  background-color: black;
+}
+
+
+.card {
+  list-style: none;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 1rem;
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card > img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.card h2 {
+  font-weight: 500;
+  font-size: 2em;
+}
+
+.schedule {
+  margin-block-start: 3rem;
+}
+
+
+
+.scheduleItem {
+  display: grid;
+  grid-template-columns: 10% 90%;
+}
+
+.schedule >  * {
+  border-block-end: 1px solid gray;
+  padding-block: 1rem;
+}
+
+
+.sectionHeader {
+  color: white;
+  block-size: 4rem;
+  margin-block-start: 3rem;
+  border-block-end: 1px solid white;
+}
+
+.sectionHeader img {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.carousel {
+  margin-block-start: 3rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% /3) - 0.75rem);
+  /* --minimum: 26ch; */
+  /* grid-template-columns: repeat(3, minmax(200px, 1fr)); */
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.scrollBehaviorSmooth {
+  scroll-behavior: smooth;
+}
+
+.scrollBehaviorAuto {
+  scroll-behavior: auto;
+}
+
+.invertColor {
+  filter: invert(100%);
+}

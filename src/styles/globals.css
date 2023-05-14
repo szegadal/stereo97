@@ -1,4 +1,13 @@
 :root {
+  --main-gutter: 2dvw;
+  --content-gutter: 2rem;
+
+  --hero: url("/images/radio-background4.jpg");
+
+  --primary-color: 206, 35, 41;
+  --secondary-color-a: 25, 20, 24;
+  --secondary-color-b: 231, 165, 6;
+
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',

@@ -9,7 +9,7 @@ import utilStyles from '../styles/utils.module.css';
 export default function Card (props) {
 
   return (
-    <div className={utilStyles.whiteText}>
+    <div className={[utilStyles.whiteText, utilStyles.stack].join(" ")}>
       <Image
         src={props.src}
         height={200}

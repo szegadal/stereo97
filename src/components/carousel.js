@@ -91,36 +91,41 @@ export default function Carousel({ children }) {
   return (
     <>
       <div className={[styles.carouselHeader, utilStyles.cluster].join(" ")}>
-        <h2>Programación</h2>
-        <Image
-          src="/images/svg-icons/caret-circle-left-thin-svgrepo-com.svg"
-          height={48}
-          width={48}
-          alt=""
-          id="carouselCaretLeft"
-          onClick={() => {
-            changeSlide(slideDirectionForward);
-          } } />
-        <Image
-          src="/images/svg-icons/caret-circle-right-thin-svgrepo-com.svg"
-          height={48}
-          width={48}
-          alt=""
-          id="carouselCaretRight"
-          onClick={() => {
-            changeSlide(!slideDirectionForward);
-          } } />
+        <div className="carousel-title">
+          <h2>Programación</h2>
+        </div>
+        <div className="carousel-controls">
+          <Image
+            src="/images/svg-icons/caret-circle-left-thin-svgrepo-com.svg"
+            height={48}
+            width={48}
+            alt=""
+            id="carouselCaretLeft"
+            onClick={() => {
+              changeSlide(slideDirectionForward);
+            } } />
+          <Image
+            src="/images/svg-icons/caret-circle-right-thin-svgrepo-com.svg"
+            height={48}
+            width={48}
+            alt=""
+            id="carouselCaretRight"
+            onClick={() => {
+              changeSlide(!slideDirectionForward);
+            } } />
+        </div>
       </div>
       <ul
         className={[styles.carousel, scrollStyle].join(" ")}
         ref={carouselRef}
         onScroll={() => {
           if (carouselRef.current.scrollLeft < (carouselRef.current.offsetWidth / itemsPerView)*0.1) {
-            console.log('first')
             carouselRef.current.scrollLeft = carouselRef.current.offsetWidth + carouselRef.current.offsetWidth / itemsPerView
             setScrollStyle(styles.scrollBehaviorAuto)
           }
           if (carouselRef.current.scrollLeft >= (carouselRef.current.scrollWidth - carouselRef.current.offsetWidth)*0.99) {
+            console.log(carouselRef.current.scrollWidth)
+            console.log(carouselRef.current.offsetWidth)
             carouselRef.current.scrollLeft = carouselRef.current.offsetWidth
             setScrollStyle(styles.scrollBehaviorAuto)
           }

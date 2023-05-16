@@ -1,8 +1,5 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
-import Date from '../components/date'
+import Layout from '../components/layout';
 
 // export async function getStaticProps() {
 
@@ -12,24 +9,27 @@ export default function Home() {
   return (
     <Layout home>
       <Head>
-        <title>{siteTitle}</title>
-        <meta name="description" content="Sintoniza Stereo97 para disfrutar de la mejor música rock nacional e internacional y las últimas tendencias en rock pop, house y electrónica. Stereo97, la número uno." />
-
-        <meta property="og:image" content={`https://og-image.vercel.app/${encodeURI(siteTitle,)}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`} />
-        <meta name="og:title" content={siteTitle} />
-
+        <link rel="icon" href="/images/favicon/favicon.png" />
+        {/* favicons */}
+        {/* TODO: Mejorar el favicon */}
+        {/* <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png" />
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="/images/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#ffffff" /> */}
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on {' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-
-      </section>
     </Layout>
   );
 }

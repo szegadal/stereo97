@@ -2,7 +2,7 @@
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: calc((100% /3) );
-  overflow: hidden;
+  overflow: auto;
   z-index: 3;
   color: black;
 }
@@ -21,7 +21,6 @@
 
 .carousel > li {
   list-style: none;
-  border: 1px solid red;
   min-height: 100%/3;
 }
 

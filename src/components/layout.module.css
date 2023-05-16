@@ -1,4 +1,4 @@
-.homeLayout {
+.layout {
   display: grid;
   grid-auto-rows: 100dvh;
   inline-size: 100%;
@@ -6,6 +6,17 @@
 
 .aboveThefold {
   background-image: var(--hero);
+  background-size: cover;
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: 10dvw;
+  color: white;
+}
+
+.aboveThefold2 {
+  background-image: url("/images/los-bolitas.jpg");
   background-size: cover;
   direction: rtl;
   display: flex;
@@ -69,11 +80,14 @@
 
 
 .card {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid white;
   list-style: none;
-  background: rgba(255, 255, 255, 0.5);
+  /* background: rgba(255, 255, 255, 0.5); */
   border-radius: 1rem;
-  backdrop-filter: blur(0.25rem);
-  -webkit-backdrop-filter: blur(0.25rem);
+  /* backdrop-filter: blur(0.25rem); */
+  /* -webkit-backdrop-filter: blur(0.25rem); */
   overflow: hidden;
   cursor: grab;
   user-select: none;
@@ -88,6 +102,7 @@
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
+  max-inline-size: 40ch;
 }
 
 .card h2 {

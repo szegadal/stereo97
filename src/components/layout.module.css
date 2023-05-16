@@ -56,13 +56,14 @@
 
 
 .section {
-  inline-size: 100%;
+  inline-size: 100dvw;
   padding-inline: 10dvw;
 }
 
 .shows {
   /* background-image: url("/images/wall-background.jpg"); */
   /* background-size: cover; */
+  color: white;
   background-color: black;
 }
 
@@ -144,4 +145,8 @@
 
 .invertColor {
   filter: invert(100%);
+}
+
+.whiteText {
+  color: white;
 }

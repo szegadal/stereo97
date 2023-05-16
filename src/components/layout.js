@@ -7,10 +7,14 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 
-import Header from './header';
+import Header from './header'
+import Carousel from './carousel'
+import Card from './card'
 
 const name = 'Your Name'
 export const siteTitle = 'Radio emisora Stereo97'
+
+
 
 export default function Layout({ children, home }) {
 
@@ -22,6 +26,7 @@ export default function Layout({ children, home }) {
   const [isDragging, setIsDragging] = useState(false)
   const carouselRef = useRef(0);
   const cardRef = useRef(0)
+  const [shows, setShows] = useState([])
 
   useEffect(() => {
     window.addEventListener('mouseup', (event) => {
@@ -30,22 +35,46 @@ export default function Layout({ children, home }) {
     }, false);
   }, []);
 
-  // useEffect(() => {
-  //   let cardPerView = Math.round(carouselRef.current.offsetWidth / cardRef.current.offsetWidth)
-  //   setCarouselChildrens(Object.entries(carouselRef.current.children))
-  //   setCarouselChildrens(Object.entries(carouselRef.current.children).slice(-cardPerView).reverse().forEach(card => {
-  //     carouselRef.current.insertAdhacentHTML("afterbegin", card.outerHTML)
-  //   }))
-
-  //   // setCarouselChildrens(Object.entries(carouselRef.current.children).slice(cardPerView).forEach(card => {
-  //   //   carouselRef.insertAdhacentHTML("beforeend", card.outerHTML)
-  //   // }))
-  // }, [])
-
   useEffect(() => {
-    console.log(carouselChildrens)
-    console.log(carouselRef)
-  },[carouselChildrens, carouselRef])
+    setShows([
+      {
+        id: 91,
+        title: "Day By Day",
+        dayOnAir: "Lunes a viernes",
+        hourOnAir: "De 8:00 a 11:00",
+        imageText: "Portada de Day by Day",
+        imageUrl: "/images/day-by-day.jpg",
+        isDraggable: false
+      },
+      {
+        id: 92,
+        title: "StereoGrafía",
+        dayOnAir: "Lunes a viernes",
+        hourOnAir: "De 11:00 a 15:00",
+        imageText: "Portada de Stereografía",
+        imageUrl: "/images/stereografia.jpg",
+        isDraggable: false
+      },
+      {
+        id: 93,
+        title: "El ShowTime",
+        dayOnAir: "Lunes a viernes",
+        hourOnAir: "De 15:00 a 18:00",
+        imageText: "Portada de ShowTime",
+        imageUrl: "/images/showtime.jpg",
+        isDraggable: false
+      },
+      {
+        id: 94,
+        title: "Gravedad Zero",
+        dayOnAir: "Domingos",
+        hourOnAir: "A las 20:00",
+        imageText: "Portada de Gravedad Zero",
+        imageUrl: "/images/gravedad-zero.jpeg",
+        isDraggable: false
+      }
+    ])
+  },[])
 
   return (
     <main className={ home? styles.homeLayout : styles.container}>
@@ -97,96 +126,60 @@ export default function Layout({ children, home }) {
 
       </div>
 
-      <section id="shows" className={[styles.section,styles.shows].join(" ")}>
-        <div className={[styles.sectionHeader, utilStyles.cluster].join(" ")}>
-          <h2>Shows</h2>
-          <Image
-            src="/images/svg-icons/caret-circle-left-thin-svgrepo-com.svg"
-            height={48}
-            width={48}
-            alt=""
-            id="carouselCaretLeft"
-            onClick={() => {
-              carouselRef.current.scrollLeft = -cardRef.current.offsetWidth
-            }}
-          />
-          <Image
-            src="/images/svg-icons/caret-circle-right-thin-svgrepo-com.svg"
-            height={48}
-            width={48}
-            alt=""
-            id="carouselCaretRight"
-            onClick={() => {
-              carouselRef.current.scrollLeft = cardRef.current.offsetWidth
-            }}
-          />
-        </div>
-
-        <ul className={[styles.carousel, scrollStyle].join(" ")}
-          ref={carouselRef}
-          onMouseEnter={() => setScrollStyle(styles.scrollBehaviorAuto)}
-          onMouseMove={(event) => {
-            setScrollStyle(styles.scrollBehaviorAuto)
-            if (!isDragging) return
-            carouselRef.current.scrollLeft = carousel
-            setCarousel(startScrollLeft - (event.clientX - startX))
-          }}
-          onMouseDown={(event) => {
-            setIsDragging(true)
-            setStartX(event.clientX)
-            setStartScrollLeft(carouselRef.current.scrollLeft)
-          }}
-        >
-          <li className={styles.card} ref={cardRef}>
-            <Image
-              src="/images/day-by-day.jpg"
-              height={200}
-              width={200}
-              alt="Portada de Day by Day"
-              draggable="false"
-            />
-            <h3>Day By Day</h3>
-            <p>Lunes a viernes</p>
-            <p>De <time dateTime="8:00">8:00</time> a <time dateTime="11:00">11:00</time></p>
-          </li>
-          <li className={styles.card}>
-            <Image
+      <section className={[styles.section, styles.shows].join(" ")} >
+          <p>prueba</p>
+          <Carousel>
+            <div className={styles.whiteText}>
+              <Image
+                src="/images/day-by-day.jpg"
+                height={200}
+                width={200}
+                alt="Portada de Day by Day"
+                draggable="false"
+              />
+              <h3>Day by Day</h3>
+              <p>Lunes a viernes</p>
+              <p>De 7:00 a 11:00</p>
+            </div>
+            <div className={styles.whiteText}>
+              <Image
               src="/images/stereografia.jpg"
-              height={200}
-              width={200}
-              alt="Portada de Stereografía"
-              draggable="false"
-            />
-            <h3>StereoGrafía</h3>
-            <p>Lunes a viernes</p>
-            <p>De <time dateTime="11:00">11:00</time> a <time dateTime="15:00">15:00</time></p>
-          </li>
-          <li className={styles.card}>
-            <Image
+                height={200}
+                width={200}
+                alt="Portada de Stereografía"
+                draggable="false"
+              />
+              <h3>Stereografía</h3>
+              <p>Lunes a viernes</p>
+              <p>De 11:00 a 15:00</p>
+            </div>
+            <div className={styles.whiteText}>
+              <Image
               src="/images/showtime.jpg"
-              height={200}
-              width={200}
-              alt="Portada de ShowTime"
-              draggable="false"
-            />
-            <h3>El ShowTime</h3>
-            <p>Lunes a viernes</p>
-            <p>De <time dateTime="15:00">15:00</time> a <time dateTime="18:00">18:00</time></p>
-          </li>
-          <li className={styles.card}>
-            <Image
-              src="/images/gravedad-zero.jpeg"
-              height={200}
-              width={200}
-              alt="Portada de ShowTime"
-              draggable="false"
-            />
-            <h3>Gravedad Zero</h3>
-            <p>Domingos</p>
-            <p><time dateTime="20:00">20:00</time></p>
-          </li>
-        </ul>
+                height={200}
+                width={200}
+                alt="Portada de El Showtime"
+                draggable="false"
+              />
+              <h3>El ShowTime</h3>
+              <p>Lunes a viernes</p>
+              <p>De 15:00 a 18:00</p>
+            </div>
+            <div className={styles.whiteText}>
+              <Image
+                src="/images/gravedad-zero.jpeg"
+                height={200}
+                width={200}
+                alt="Portada de Gravedad Zero"
+                draggable="false"
+              />
+              <h3>Gravedad Zero</h3>
+              <p>Domingos</p>
+              <p>A las 20:00</p>
+            </div>
+          </Carousel>
       </section>
+
 
       <section id="programacion" className={styles.section}>
         <div className={[styles.sectionHeader, styles.invertColor, utilStyles.cluster].join(" ")}>

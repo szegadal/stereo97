@@ -5,6 +5,7 @@
 }
 
 .aboveThefold {
+  font-family: "GreatLakesShadowNF";
   background-image: var(--hero);
   background-size: cover;
   direction: rtl;
@@ -16,15 +17,21 @@
 }
 
 .aboveThefold2 {
-  background-image: url("/images/los-bolitas.jpg");
+  background-image: url("/images/octavia.jpg");
   background-position: center;
   background-size: cover;
-  direction: rtl;
+  /* direction: rtl; */
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding-inline: 10dvw;
   color: white;
+}
+
+.aboveThefold2 h1 {
+  margin: 20%;
+  font-size: 4rem;
+  text-align: center;
 }
 
 .heroContent {
@@ -49,7 +56,6 @@
 .playerCover {
   grid-row: 1;
   grid-column: 1/-1;
-
 }
 
 .playerControls {
@@ -62,10 +68,8 @@
 .playerControls iframe {
   /* position: absolute; */
   filter: invert(100%);
-  transform: translate(-6.75rem)
+  transform: translate(-6.75rem);
 }
-
-
 
 .section {
   inline-size: 100dvw;
@@ -78,7 +82,6 @@
   color: white;
   background-color: black;
 }
-
 
 .card {
   margin: 1rem;
@@ -115,18 +118,15 @@
   margin-block-start: 3rem;
 }
 
-
-
 .scheduleItem {
   display: grid;
   grid-template-columns: 10% 90%;
 }
 
-.schedule >  * {
+.schedule > * {
   border-block-end: 1px solid gray;
   padding-block: 1rem;
 }
-
 
 .sectionHeader {
   color: white;
@@ -144,7 +144,7 @@
   margin-block-start: 3rem;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% /3) - 0.75rem);
+  grid-auto-columns: calc((100% / 3) - 0.75rem);
   /* --minimum: 26ch; */
   /* grid-template-columns: repeat(3, minmax(200px, 1fr)); */
   gap: 1rem;
@@ -165,4 +165,8 @@
 
 .whiteText {
   color: white;
+}
+
+.fullPage {
+  block-size: 100%;
 }

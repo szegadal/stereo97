@@ -40,8 +40,9 @@ Aunque el carousel presenta actualmente un pequeño glitch al pasar las tarjetas
 
 ## 📸 Capturas de Pantalla
 
-![./images/v1.png]
-![./images/v2.png]
+![image](https://github.com/user-attachments/assets/76d026f2-ecef-46f4-a188-889e14a948ef)
+![image](https://github.com/user-attachments/assets/2f1aaa97-2eb3-456c-ac0f-941e4b3bcdf4)
+
 
 ## Contribuciones
 

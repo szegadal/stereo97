@@ -1,59 +1,98 @@
-import { useEffect, useState } from "react";
+"use client"
+import { useEffect, useState } from "react"
 
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import localFont from "next/font/local";
+import Head from "next/head"
+import Link from "next/link"
+import localFont from "next/font/local"
+import { ShowCard } from "../../components/show-card"
 
-import Header from "../../components/header2";
-import Carousel from "../../components/carousel";
+import Header from "../../components/header2"
+import Carousel from "../../components/carousel"
 
-import styles from "../../components/layout.module.css";
-import utilStyles from "../../styles/utils.module.css";
-import { images } from "../../../next.config";
+import styles from "../../components/layout.module.css"
+import utilStyles from "../../styles/utils.module.css"
 
 const greatLakesShadowNF = localFont({
   src: "../Great-Lakes-Shadow-NF/GreatLakesShadowNF.ttf",
-});
+})
 
-const siteTitle = "Radio emisora Stereo97";
+const siteTitle = "Radio emisora Stereo97"
 const siteDescription =
-  "Sintoniza Stereo97 para disfrutar de la mejor música rock nacional e internacional y las últimas tendencias en rock pop, house y electrónica. Stereo97, la número uno.";
+  "Sintoniza Stereo97 para disfrutar de la mejor música rock nacional e internacional y las últimas tendencias en rock pop, house y electrónica. Stereo97, la número uno."
+
+const shows = [
+  {
+    id: 91,
+    title: "Day By Day",
+    dayOnAir: "Lunes a viernes",
+    hourOnAir: "De 8:00 a 11:00",
+    imageText: "Portada de Day by Day",
+    imageUrl: "/images/day-by-day.jpeg",
+    isDraggable: false,
+  },
+  {
+    id: 92,
+    title: "StereoGrafía",
+    dayOnAir: "Lunes a viernes",
+    hourOnAir: "De 11:00 a 15:00",
+    imageText: "Portada de Stereografía",
+    imageUrl: "/images/stereografia.jpg",
+    isDraggable: false,
+  },
+  {
+    id: 93,
+    title: "El ShowTime",
+    dayOnAir: "Lunes a viernes",
+    hourOnAir: "De 15:00 a 18:00",
+    imageText: "Portada de ShowTime",
+    imageUrl: "/images/showtime.jpg",
+    isDraggable: false,
+  },
+  {
+    id: 94,
+    title: "Gravedad Zero",
+    dayOnAir: "Domingos",
+    hourOnAir: "A las 20:00",
+    imageText: "Portada de Gravedad Zero",
+    imageUrl: "/images/gravedad-zero.jpeg",
+    isDraggable: false,
+  },
+]
 
 export default function Layout2({ children, home }) {
   const images = [
     'url("/images/octavia.jpg")',
     'url("/images/the-weeknd-2016.jpg")',
     'url("/images/vero-perez.png")',
-  ];
+  ]
   const messages = [
     "Artistas nacionales",
     "Artistas internacionales",
     "Últimas tendencias",
-  ];
+  ]
 
-  const [background, setBackground] = useState("");
-  const [counter, setCounter] = useState(0);
-  const [message, setMessage] = useState("");
+  const [background, setBackground] = useState("")
+  const [counter, setCounter] = useState(0)
+  const [message, setMessage] = useState("")
 
   useEffect(() => {
     const interval = setInterval(() => {
       function changeBg() {
-        return images[counter];
+        return images[counter]
       }
       function changeMessage() {
-        return messages[counter];
+        return messages[counter]
       }
-      setBackground(changeBg());
-      setMessage(changeMessage());
+      setBackground(changeBg())
+      setMessage(changeMessage())
       if (images && counter === images.length - 1) {
-        setCounter(0);
+        setCounter(0)
       } else {
-        setCounter(counter + 1);
+        setCounter(counter + 1)
       }
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [counter]);
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [counter])
 
   return (
     <>
@@ -82,54 +121,9 @@ export default function Layout2({ children, home }) {
 
           <section className={[styles.section, styles.shows].join(" ")}>
             <Carousel>
-              <div className={[styles.whiteText, styles.card].join(" ")}>
-                <Image
-                  src="/images/day-by-day.jpeg"
-                  height={200}
-                  width={200}
-                  alt="Portada de Day by Day"
-                  draggable="false"
-                />
-                <h3>Day by Day</h3>
-                <p>Lunes a viernes</p>
-                <p>De 7:00 a 11:00</p>
-              </div>
-              <div className={[styles.whiteText, styles.card].join(" ")}>
-                <Image
-                  src="/images/stereografia.jpg"
-                  height={200}
-                  width={200}
-                  alt="Portada de Stereografía"
-                  draggable="false"
-                />
-                <h3>Stereografía</h3>
-                <p>Lunes a viernes</p>
-                <p>De 11:00 a 15:00</p>
-              </div>
-              <div className={[styles.whiteText, styles.card].join(" ")}>
-                <Image
-                  src="/images/showtime.jpg"
-                  height={200}
-                  width={200}
-                  alt="Portada de El Showtime"
-                  draggable="false"
-                />
-                <h3>El ShowTime</h3>
-                <p>Lunes a viernes</p>
-                <p>De 15:00 a 18:00</p>
-              </div>
-              <div className={[styles.whiteText, styles.card].join(" ")}>
-                <Image
-                  src="/images/gravedad-zero.jpeg"
-                  height={200}
-                  width={200}
-                  alt="Portada de Gravedad Zero"
-                  draggable="false"
-                />
-                <h3>Gravedad Zero</h3>
-                <p>Domingos</p>
-                <p>A las 20:00</p>
-              </div>
+              {shows.map((show) => (
+                <ShowCard key={show.id} {...show} />
+              ))}
             </Carousel>
           </section>
 
@@ -162,9 +156,6 @@ export default function Layout2({ children, home }) {
               </div>
             </div>
           </section>
-          {/* <section>
-          {children}
-        </section> */}
           <div className={styles.player}>
             <div className={styles.playerCover}>
               <iframe
@@ -191,5 +182,5 @@ export default function Layout2({ children, home }) {
         </main>
       </div>
     </>
-  );
+  )
 }

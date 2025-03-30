@@ -1,19 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+"use client"
+import Head from "next/head"
+import Link from "next/link"
+import Image from "next/image"
+import { ShowCard } from "./show-card"
 
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
+import styles from "./layout.module.css"
+import utilStyles from "../styles/utils.module.css"
 
-import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
+import Header from "./header"
+import Carousel from "./carousel"
 
-import Header from "./header";
-import Carousel from "./carousel";
-import Card from "./card";
-
-const siteTitle = "Radio emisora Stereo97";
+const siteTitle = "Radio emisora Stereo97"
 const siteDescription =
-  "Sintoniza Stereo97 para disfrutar de la mejor música rock nacional e internacional y las últimas tendencias en rock pop, house y electrónica. Stereo97, la número uno.";
+  "Sintoniza Stereo97 para disfrutar de la mejor música rock nacional e internacional y las últimas tendencias en rock pop, house y electrónica. Stereo97, la número uno."
 const shows = [
   {
     id: 91,
@@ -21,7 +20,7 @@ const shows = [
     dayOnAir: "Lunes a viernes",
     hourOnAir: "De 8:00 a 11:00",
     imageText: "Portada de Day by Day",
-    imageUrl: "/images/day-by-day.jpg",
+    imageUrl: "/images/day-by-day.jpeg",
     isDraggable: false,
   },
   {
@@ -51,7 +50,7 @@ const shows = [
     imageUrl: "/images/gravedad-zero.jpeg",
     isDraggable: false,
   },
-];
+]
 
 export default function Layout({ children, home }) {
   return (
@@ -85,61 +84,14 @@ export default function Layout({ children, home }) {
               height={150}
               width={300}
               alt="Logo de Stereo 97"
-              // className={utilStyles.filterGrayscale}
             />
-            {/* <div className={styles.heroCallToAction}>Sintoniza FM 97.3</div> */}
           </div>
 
           <section className={[styles.section, styles.shows].join(" ")}>
             <Carousel>
-              <div className={[styles.whiteText, styles.card].join(" ")}>
-                <Image
-                  src="/images/day-by-day.jpeg"
-                  height={200}
-                  width={200}
-                  alt="Portada de Day by Day"
-                  draggable="false"
-                />
-                <h3>Day by Day</h3>
-                <p>Lunes a viernes</p>
-                <p>De 7:00 a 11:00</p>
-              </div>
-              <div className={[styles.whiteText, styles.card].join(" ")}>
-                <Image
-                  src="/images/stereografia.jpg"
-                  height={200}
-                  width={200}
-                  alt="Portada de Stereografía"
-                  draggable="false"
-                />
-                <h3>Stereografía</h3>
-                <p>Lunes a viernes</p>
-                <p>De 11:00 a 15:00</p>
-              </div>
-              <div className={[styles.whiteText, styles.card].join(" ")}>
-                <Image
-                  src="/images/showtime.jpg"
-                  height={200}
-                  width={200}
-                  alt="Portada de El Showtime"
-                  draggable="false"
-                />
-                <h3>El ShowTime</h3>
-                <p>Lunes a viernes</p>
-                <p>De 15:00 a 18:00</p>
-              </div>
-              <div className={[styles.whiteText, styles.card].join(" ")}>
-                <Image
-                  src="/images/gravedad-zero.jpeg"
-                  height={200}
-                  width={200}
-                  alt="Portada de Gravedad Zero"
-                  draggable="false"
-                />
-                <h3>Gravedad Zero</h3>
-                <p>Domingos</p>
-                <p>A las 20:00</p>
-              </div>
+              {shows.map((show) => (
+                <ShowCard key={show.id} {...show} />
+              ))}
             </Carousel>
           </section>
 
@@ -201,5 +153,5 @@ export default function Layout({ children, home }) {
         </main>
       </div>
     </>
-  );
+  )
 }

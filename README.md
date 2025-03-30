@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Stereo97 Website
 
-## Getting Started
+Este proyecto es una versión mejorada del sitio web para la radio emisora Stereo97, especializada en rock boliviano e internacional. La página está construida con Next.js y presenta dos diseños alternativos.
 
-First, run the development server:
+Página original: https://www.stereo97.fm/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## 📻 Descripción
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Stereo97 es una radio emisora enfocada en rock nacional e internacional, así como las últimas tendencias en rock pop, house y electrónica. Este proyecto nació como una iniciativa personal para mejorar la página web existente de la radio que marcó mi juventud.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+El proyecto incluye dos versiones:
+- [https://main.dxx2cbonkqsz9.amplifyapp.com/](**src/components/layout.js**): Una versión mejorada de la página actual, manteniendo la esencia original.
+- [https://main.dxx2cbonkqsz9.amplifyapp.com/versions/version2](**src/pages/versions/version2.js**): Una propuesta con nuevas ideas y elementos visuales, como redes sociales en forma de vinilos en movimiento.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## ✨ Características
 
-## Learn More
+- **Diseño Responsivo**: Adaptado a diferentes tamaños de pantalla
+- **Infinite Carousel**: Desarrollado desde cero con funcionalidad para arrastrar tarjetas
+- **Reproductor Integrado**: Opción para escuchar la emisora en vivo
+- **Animaciones**: Elementos visuales dinámicos como el cambio de imágenes de fondo en Layout2
+- **Dos Propuestas de Diseño**: Versión conservadora y versión innovadora
 
-To learn more about Next.js, take a look at the following resources:
+## 🔧 Tecnologías Utilizadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- CSS Modules
+- [Next Font](https://nextjs.org/docs/basic-features/font-optimization)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 💡 Desafíos y Aprendizajes
 
-## Deploy on Vercel
+El mayor desafío de este proyecto fue la implementación del infinite carousel desde cero, con la capacidad de arrastrar las tarjetas para navegar. Esta funcionalidad me permitió aprender sobre:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Manejo de estados en React
+- Uso de Hooks avanzados más allá de `useState` y `useEffect`
+- Manipulación del DOM a través de React
+- Gestión de eventos de interacción del usuario
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Aunque el carousel presenta actualmente un pequeño glitch al pasar las tarjetas (vuelve bruscamente al estado inicial), fue una valiosa oportunidad de aprendizaje. Hoy en día, implementaría esta funcionalidad utilizando componentes de [shadcn/ui](https://ui.shadcn.com/) para una experiencia más pulida.
+
+## 📸 Capturas de Pantalla
+
+*(Aquí se añadirían capturas de pantalla de ambas versiones del sitio)*
+
+## Contribuciones
+
+Este proyecto es demostrativo y no recibe contribuciones. Para un futuro planearía hacerlo con shadcn y tailwindcss.

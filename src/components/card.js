@@ -1,10 +1,6 @@
-import { useEffect } from "react";
-import Link from "next/link";
-import Image from 'next/image';
-import { useRouter } from "next/router";
+import Image from 'next/image'
 
-import styles from './header.module.css';
-import utilStyles from '../styles/utils.module.css';
+import utilStyles from '../styles/utils.module.css'
 
 export default function Card (props) {
 
@@ -21,5 +17,5 @@ export default function Card (props) {
       <p>{props.dayOnAir}</p>
       <p>{props.hourOnAir}</p>
     </div>
-  );
-};
+  )
+}

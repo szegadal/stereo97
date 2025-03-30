@@ -1,20 +1,20 @@
-import { useEffect } from "react";
-import Link from "next/link";
-import Image from 'next/image';
-import { useRouter } from "next/router";
+import { useEffect } from "react"
+import Link from "next/link"
+import Image from 'next/image'
+import { useRouter } from "next/router"
 
-import styles from './header2.module.css';
-import utilStyles from '../styles/utils.module.css';
+import styles from './header2.module.css'
+import utilStyles from '../styles/utils.module.css'
 
 const Header = (home) => {
-  const router = useRouter();
-  const currentRoute = router.pathname;
+  const router = useRouter()
+  const currentRoute = router.pathname
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      document.body.style.setProperty('--scroll', (window.scrollY) / (document.body.offsetHeight - window.innerHeight));
-    }, false);
-  }, []);
+      document.body.style.setProperty('--scroll', (window.scrollY) / (document.body.offsetHeight - window.innerHeight))
+    }, false)
+  }, [])
 
   return (
     <header className={[styles.header, styles.fullBleed, utilStyles.cluster, utilStyles.spaceBetween].join(" ")}>
@@ -113,7 +113,7 @@ const Header = (home) => {
         </Link>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

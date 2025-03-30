@@ -92,7 +92,7 @@ export default function Layout2({ children, home }) {
       }
     }, 2000)
     return () => clearInterval(interval)
-  }, [counter])
+  }, [counter]) // eslint-disable-line
 
   return (
     <>

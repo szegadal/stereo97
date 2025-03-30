@@ -9,8 +9,8 @@ Página original: https://www.stereo97.fm/
 Stereo97 es una radio emisora enfocada en rock nacional e internacional, así como las últimas tendencias en rock pop, house y electrónica. Este proyecto nació como una iniciativa personal para mejorar la página web existente de la radio que marcó mi juventud.
 
 El proyecto incluye dos versiones:
-- [https://main.dxx2cbonkqsz9.amplifyapp.com/](**src/components/layout.js**): Una versión mejorada de la página actual, manteniendo la esencia original.
-- [https://main.dxx2cbonkqsz9.amplifyapp.com/versions/version2](**src/pages/versions/version2.js**): Una propuesta con nuevas ideas y elementos visuales, como redes sociales en forma de vinilos en movimiento.
+- [**src/components/layout.js**](https://main.dxx2cbonkqsz9.amplifyapp.com/): Una versión mejorada de la página actual, manteniendo la esencia original.
+- [**src/pages/versions/version2.js**](https://main.dxx2cbonkqsz9.amplifyapp.com/versions/version2): Una propuesta con nuevas ideas y elementos visuales, como redes sociales en forma de vinilos en movimiento.
 
 ## ✨ Características
 
